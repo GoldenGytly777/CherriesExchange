@@ -1,0 +1,12 @@
+DROP DATABASE IF EXISTS `Cherry`;
+CREATE DATABASE `Cherry`;
+USE `Cherry`;
+
+CREATE USER IF NOT EXISTS `dev` IDENTIFIED BY "dev";
+CREATE USER IF NOT EXISTS `admin` IDENTIFIED BY "admin";
+CREATE USER IF NOT EXISTS `user` IDENTIFIED BY "user";
+
+GRANT ALL privileges ON *.* TO 'dev'@'%';
+GRANT ALL privileges ON *.* TO 'admin'@'%';
+GRANT SELECT, SHOW VIEW, PROCESS, REPLICATION CLIENT ON *.* TO 'user'@'%';
+
