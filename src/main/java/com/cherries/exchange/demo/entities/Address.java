@@ -15,7 +15,7 @@ public class Address {
     @Id
     @GeneratedValue
     @Column(name = "id",nullable = false)
-    private BigInteger id;
+    private Integer id;
 
     @Column(name = "country")
     private  String country;

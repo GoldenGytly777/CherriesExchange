@@ -15,10 +15,10 @@ public class Currency {
     @Id
     @GeneratedValue
     @Column(name = "id",nullable = false)
-    private  BigInteger id;
+    private  Integer id;
 
     @Column(name = "code")
-    private BigInteger code;
+    private Integer code;
 
     @Column(name = "name")
     private String name;
