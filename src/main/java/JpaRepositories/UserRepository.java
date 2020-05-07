@@ -1,4 +1,4 @@
-package JpaRepository;
+package JpaRepositories;
 
 import com.cherries.exchange.demo.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;

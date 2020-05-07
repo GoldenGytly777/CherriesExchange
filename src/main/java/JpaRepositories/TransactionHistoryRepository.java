@@ -1,4 +1,4 @@
-package JpaRepository;
+package JpaRepositories;
 
 import com.cherries.exchange.demo.entities.TransactionHistory;
 import org.springframework.data.jpa.repository.JpaRepository;
