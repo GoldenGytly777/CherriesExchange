@@ -3,13 +3,12 @@ package com.cherries.exchange.demo.Services;
 import com.cherries.exchange.demo.JpaRepositories.AddressRepository;
 import com.cherries.exchange.demo.entities.Address;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
-@Service
-public class AddressService implements ServiceTemplate<Address,Integer> {
+@org.springframework.stereotype.Service
+public class AddressService implements Service<Address,Integer> {
 
     @Autowired
     private AddressRepository addressRepository;

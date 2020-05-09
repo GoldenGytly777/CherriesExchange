@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-
-public class WalletService implements ServiceTemplate<Wallet,Integer> {
+@org.springframework.stereotype.Service
+public class WalletService implements Service<Wallet,Integer> {
     @Autowired
     private WalletRepository walletRepository;
 
@@ -28,6 +28,6 @@ public class WalletService implements ServiceTemplate<Wallet,Integer> {
 
     @Override
     public Wallet findById(Integer id) {
-        return walletRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(id.toString()));
+        return walletRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("There is no wallet with id: " + id.toString()));
     }
 }

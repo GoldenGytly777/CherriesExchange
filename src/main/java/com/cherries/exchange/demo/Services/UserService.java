@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-
-public class UserService implements ServiceTemplate<User, Integer>{
+@org.springframework.stereotype.Service
+public class UserService implements Service<User, Integer> {
     @Autowired
     private UserRepository userRepository;
 
@@ -28,6 +28,6 @@ public class UserService implements ServiceTemplate<User, Integer>{
 
     @Override
     public User findById(Integer id) {
-        return userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(id.toString()));
+        return userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("There is no user with id: " + id.toString()));
     }
 }

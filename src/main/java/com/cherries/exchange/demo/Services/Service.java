@@ -2,7 +2,7 @@ package com.cherries.exchange.demo.Services;
 
 import java.util.List;
 
-public interface ServiceTemplate<U,T> {
+public interface Service<U,T> {
     public void  deleteObjectById(T id);
     public U save(U object);
     public List<U> findAll();

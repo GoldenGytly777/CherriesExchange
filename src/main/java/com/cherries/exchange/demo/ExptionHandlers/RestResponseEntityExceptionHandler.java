@@ -1,6 +1,7 @@
 package com.cherries.exchange.demo.ExptionHandlers;
 
 
+import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,8 @@ public class RestResponseEntityExceptionHandler
 
     @ExceptionHandler(value =  EntityNotFoundException.class )
     protected ResponseEntity<Object> handleNotFound(RuntimeException ex, HttpServletRequest request) {
-        //IETF 7807
+
+
         ErrorResponse errorResponse = new ErrorResponse(
                 new Timestamp(System.currentTimeMillis()).toString(),
                 HttpStatus.NOT_FOUND.value(),

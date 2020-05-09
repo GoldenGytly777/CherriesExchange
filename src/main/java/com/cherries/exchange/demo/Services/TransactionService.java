@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-
-public class TransactionService implements ServiceTemplate<TransactionHistory,Integer> {
+@org.springframework.stereotype.Service
+public class TransactionService implements Service<TransactionHistory,Integer> {
 
 
     @Autowired
@@ -30,6 +30,6 @@ public class TransactionService implements ServiceTemplate<TransactionHistory,In
 
     @Override
     public TransactionHistory findById(Integer id) {
-        return transactionHistoryRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(id.toString()));
+        return transactionHistoryRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("There is no transactionHistory with id: " + id.toString()));
     }
 }

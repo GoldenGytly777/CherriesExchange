@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-
-public class CurrencyService implements ServiceTemplate<Currency,Integer> {
+@org.springframework.stereotype.Service
+public class CurrencyService implements Service<Currency,Integer> {
     @Autowired
     private CurrencyRepository currencyRepository;
 
@@ -28,6 +28,6 @@ public class CurrencyService implements ServiceTemplate<Currency,Integer> {
 
     @Override
     public Currency findById(Integer id) {
-        return currencyRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(id.toString()));
+        return currencyRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("There is no currency with id: " + id.toString()));
     }
 }
