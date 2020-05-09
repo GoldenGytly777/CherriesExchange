@@ -19,13 +19,13 @@ public class TransactionHistoryRestController implements CrudController<Transact
 
     @Override
     @GetMapping("/transactionHistories")
-    public List<TransactionHistory> getAddresses() {
+    public List<TransactionHistory> getObjects() {
         return transactionService.findAll();
     }
 
     @Override
     @GetMapping("/transactionHistory/{id}")
-    public TransactionHistory getAddresses(@PathVariable Integer id) {
+    public TransactionHistory getObject(@PathVariable Integer id) {
         return transactionService.findById(id);
     }
 }

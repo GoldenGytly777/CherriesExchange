@@ -19,13 +19,13 @@ public class WalletRestController implements CrudController<Wallet,Integer> {
 
     @Override
     @GetMapping("/wallets")
-    public List<Wallet> getAddresses() {
+    public List<Wallet> getObjects() {
         return walletService.findAll();
     }
 
     @Override
     @GetMapping("/wallet/{id}")
-    public Wallet getAddresses(@PathVariable Integer id) {
+    public Wallet getObject(@PathVariable Integer id) {
         return walletService.findById(id);
     }
 }

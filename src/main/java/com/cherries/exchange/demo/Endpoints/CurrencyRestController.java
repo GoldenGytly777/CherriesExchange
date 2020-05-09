@@ -20,13 +20,13 @@ public class CurrencyRestController implements CrudController<Currency,Integer> 
 
     @Override
     @GetMapping("/currencies")
-    public List<Currency> getAddresses(){
+    public List<Currency> getObjects(){
         return currencyService.findAll();
     }
 
     @Override
     @GetMapping("/currency/{id}")
-    public Currency getAddresses(@PathVariable Integer id){
+    public Currency getObject(@PathVariable Integer id){
         return currencyService.findById(id);
     }
 

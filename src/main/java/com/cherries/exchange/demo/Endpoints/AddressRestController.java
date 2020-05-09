@@ -16,14 +16,19 @@ public class AddressRestController implements CrudController<Address,Integer> {
 
     @Override
     @GetMapping("/addresses")
-    public List<Address> getAddresses(){
+    public List<Address> getObjects(){
         return addressService.findAll();
     }
 
     @Override
     @GetMapping("/address/{id}")
-    public Address getAddresses(@PathVariable Integer id){
+    public Address getObject(@PathVariable Integer id){
            return addressService.findById(id);
+    }
+
+    @PostMapping("/address")
+    public Address createAddress(@RequestBody Address address){
+        return addressService.save(address);
     }
 
 }

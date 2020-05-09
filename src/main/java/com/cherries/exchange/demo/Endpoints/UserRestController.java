@@ -3,10 +3,7 @@ package com.cherries.exchange.demo.Endpoints;
 import com.cherries.exchange.demo.Services.UserService;
 import com.cherries.exchange.demo.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,13 +16,20 @@ public class UserRestController implements CrudController<User,Integer> {
 
     @Override
     @GetMapping("/users")
-    public List<User> getAddresses() {
+    public List<User> getObjects() {
         return userService.findAll();
     }
 
     @Override
     @GetMapping("/user/{id}")
-    public User getAddresses(@PathVariable Integer id) {
+    public User getObject(@PathVariable Integer id) {
         return userService.findById(id);
+    }
+
+     @PostMapping("/user")
+    public User createUser(@RequestBody User user){
+        user.setId(0);
+        userService.save(user);
+        return user;
     }
 }
