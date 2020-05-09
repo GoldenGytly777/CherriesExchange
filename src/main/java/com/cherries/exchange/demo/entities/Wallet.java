@@ -12,10 +12,10 @@ public class Wallet {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private  int id;
+    private  Integer id;
 
     @Column(name = "amount")
-    private  double amount;
+    private  Double amount;
 
     @Column(name="created_at")
     @Temporal(TemporalType.TIMESTAMP)

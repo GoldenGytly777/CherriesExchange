@@ -14,7 +14,7 @@ public class TransactionHistory {
     @Id
     @GeneratedValue
     @Column(name = "id",nullable = false)
-    private BigInteger id;
+    private Integer id;
 
     @Column(name="value_from")
     private BigDecimal value_from;

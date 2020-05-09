@@ -1,5 +1,6 @@
 package com.cherries.exchange.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,7 +15,7 @@ public class Address {
     @Id
     @GeneratedValue
     @Column(name = "id",nullable = false)
-    private BigInteger id;
+    private Integer id;
 
     @Column(name = "country")
     private  String country;
@@ -39,6 +40,7 @@ public class Address {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updated_at;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     User user;

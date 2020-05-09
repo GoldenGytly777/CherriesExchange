@@ -1,6 +1,6 @@
-package Services;
+package com.cherries.exchange.demo.Services;
 
-import JpaRepositories.AddressRepository;
+import com.cherries.exchange.demo.JpaRepositories.AddressRepository;
 import com.cherries.exchange.demo.entities.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +31,6 @@ public class AddressService implements ServiceTemplate<Address,Integer> {
 
     @Override
     public Address findById(Integer id) {
-        return addressRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(id.toString()));
+        return addressRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("There is no address with id: " + id.toString()));
     }
 }

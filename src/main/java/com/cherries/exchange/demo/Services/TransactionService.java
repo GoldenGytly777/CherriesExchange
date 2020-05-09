@@ -1,6 +1,6 @@
-package Services;
+package com.cherries.exchange.demo.Services;
 
-import JpaRepositories.TransactionHistoryRepository;
+import com.cherries.exchange.demo.JpaRepositories.TransactionHistoryRepository;
 import com.cherries.exchange.demo.entities.TransactionHistory;
 import org.springframework.beans.factory.annotation.Autowired;
 

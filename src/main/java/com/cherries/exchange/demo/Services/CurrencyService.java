@@ -1,6 +1,6 @@
-package Services;
+package com.cherries.exchange.demo.Services;
 
-import JpaRepositories.CurrencyRepository;
+import com.cherries.exchange.demo.JpaRepositories.CurrencyRepository;
 import com.cherries.exchange.demo.entities.Currency;
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -1,4 +1,4 @@
-package Services;
+package com.cherries.exchange.demo.Services;
 
 import java.util.List;
 

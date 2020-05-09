@@ -1,4 +1,4 @@
-package JpaRepositories;
+package com.cherries.exchange.demo.JpaRepositories;
 
 import com.cherries.exchange.demo.entities.Currency;
 import org.springframework.data.jpa.repository.JpaRepository;

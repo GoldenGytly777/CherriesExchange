@@ -1,6 +1,6 @@
-package Services;
+package com.cherries.exchange.demo.Services;
 
-import JpaRepositories.WalletRepository;
+import com.cherries.exchange.demo.JpaRepositories.WalletRepository;
 import com.cherries.exchange.demo.entities.Wallet;
 import org.springframework.beans.factory.annotation.Autowired;
 

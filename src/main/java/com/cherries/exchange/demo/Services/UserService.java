@@ -1,6 +1,6 @@
-package Services;
+package com.cherries.exchange.demo.Services;
 
-import JpaRepositories.UserRepository;
+import com.cherries.exchange.demo.JpaRepositories.UserRepository;
 import com.cherries.exchange.demo.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
