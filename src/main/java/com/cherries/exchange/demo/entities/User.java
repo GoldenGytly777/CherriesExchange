@@ -32,7 +32,7 @@ public class User {
     @Column(name="role", nullable = false)
     private String role;
 
-    @JsonIgnore
+
     @Column(name="password")
     private String password;
 
