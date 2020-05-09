@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -24,7 +25,11 @@ public class AddressRestController {
 
     @GetMapping("/address/{id}")
     public Address getAddresses(@PathVariable Integer id){
-        return addressService.findById(id);
+        try{
+           return addressService.findById(id);
+        }catch (EntityNotFoundException e){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(),e);
+        }
     }
 
 }
