@@ -2,11 +2,9 @@ package com.cherries.exchange.demo.Endpoints;
 
 import com.cherries.exchange.demo.Services.TransactionService;
 import com.cherries.exchange.demo.entities.TransactionHistory;
+import com.cherries.exchange.demo.entities.Wallet;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +25,10 @@ public class TransactionHistoryRestController implements CrudController<Transact
     @GetMapping("/transactionHistory/{id}")
     public TransactionHistory getObject(@PathVariable Integer id) {
         return transactionService.findById(id);
+    }
+
+    @PostMapping("/transactionHistory")
+    public TransactionHistory createUser(@RequestBody TransactionHistory transactionHistory){
+        return transactionService.save(transactionHistory);
     }
 }

@@ -1,12 +1,10 @@
 package com.cherries.exchange.demo.Endpoints;
 
 import com.cherries.exchange.demo.Services.WalletService;
+import com.cherries.exchange.demo.entities.User;
 import com.cherries.exchange.demo.entities.Wallet;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +25,10 @@ public class WalletRestController implements CrudController<Wallet,Integer> {
     @GetMapping("/wallet/{id}")
     public Wallet getObject(@PathVariable Integer id) {
         return walletService.findById(id);
+    }
+
+    @PostMapping("/wallet")
+    public Wallet createUser(@RequestBody Wallet wallet){
+        return walletService.save(wallet);
     }
 }

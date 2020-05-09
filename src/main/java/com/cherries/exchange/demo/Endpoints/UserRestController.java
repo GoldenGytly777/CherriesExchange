@@ -26,10 +26,8 @@ public class UserRestController implements CrudController<User,Integer> {
         return userService.findById(id);
     }
 
-     @PostMapping("/user")
+    @PostMapping("/user")
     public User createUser(@RequestBody User user){
-        user.setId(0);
-        userService.save(user);
-        return user;
+        return userService.save(user);
     }
 }
