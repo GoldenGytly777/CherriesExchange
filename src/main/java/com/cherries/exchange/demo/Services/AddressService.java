@@ -31,6 +31,6 @@ public class AddressService implements ServiceTemplate<Address,Integer> {
 
     @Override
     public Address findById(Integer id) {
-        return addressRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(id.toString()));
+        return addressRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("There is no address with id: " + id.toString()));
     }
 }
