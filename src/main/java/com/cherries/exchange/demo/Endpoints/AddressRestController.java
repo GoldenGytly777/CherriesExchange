@@ -4,7 +4,6 @@ import com.cherries.exchange.demo.Services.AddressService;
 import com.cherries.exchange.demo.entities.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -25,11 +24,7 @@ public class AddressRestController {
 
     @GetMapping("/address/{id}")
     public Address getAddresses(@PathVariable Integer id){
-        try{
            return addressService.findById(id);
-        }catch (EntityNotFoundException e){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(),e);
-        }
     }
 
 }
