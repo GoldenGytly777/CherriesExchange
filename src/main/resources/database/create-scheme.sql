@@ -38,7 +38,7 @@ CREATE TABLE `address` (
 );
 CREATE TABLE `currency` (
 	`id` SERIAL,
-    `code` bigint not null,
+    `code` varchar(3),
     `name` varchar(10)
 );
 
