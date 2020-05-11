@@ -6,6 +6,8 @@ import lombok.Data;
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="address")
@@ -13,9 +15,9 @@ import java.util.Date;
 public class Address {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "country")
     private  String country;
@@ -40,9 +42,16 @@ public class Address {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updated_at;
 
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    private User user_id;
+
     @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    User user;
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "Address_User",
+            joinColumns = { @JoinColumn(name = "address_id") },
+            inverseJoinColumns = { @JoinColumn(name = "user_id") }
+    )
+    Set<User> users = new HashSet<>();
 
 }

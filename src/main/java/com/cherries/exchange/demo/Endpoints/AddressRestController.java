@@ -23,11 +23,12 @@ public class AddressRestController implements CrudController<Address,Integer> {
     @Override
     @GetMapping("/address/{id}")
     public Address getObject(@PathVariable Integer id){
-           return addressService.findById(id);
+        return addressService.findById(id);
     }
 
     @PostMapping("/address")
     public Address createAddress(@RequestBody Address address){
+
         return addressService.save(address);
     }
 

@@ -6,7 +6,7 @@ DROP TABLE IF exists `currency`;
 DROP TABLE IF exists `user`;
 
 CREATE TABLE `user` (
-	`id` SERIAL,
+	`user_id` SERIAL,
     `first_name` varchar(32) NOT NULL,
     `last_name` varchar(32) NOT NULL,
     `email` varchar(320) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE `user` (
     `blocked` boolean default false,
 	`created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    primary key(`id`),
+    primary key(`user_id`),
     unique key(`email`)
 );
 
@@ -32,7 +32,7 @@ CREATE TABLE `address` (
 	`created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     primary key(`id`),
-    foreign key(`user_id`) references `user`(`id`)
+    foreign key(`user_id`) references `user`(`user_id`)
 
 
 );
@@ -50,7 +50,7 @@ CREATE TABLE `wallet` (
 	`created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     primary key(`id`),
-	FOREIGN KEY(`user_id`) REFERENCES `user`(`id`),
+	FOREIGN KEY(`user_id`) REFERENCES `user`(`user_id`),
     FOREIGN KEY(`currency_id`) REFERENCES `currency`(`id`)
 );
 
@@ -66,7 +66,7 @@ CREATE TABLE `transaction_history` (
 	`created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     primary key(`id`),
-	FOREIGN KEY(`user_id`) REFERENCES `user`(`id`),
+	FOREIGN KEY(`user_id`) REFERENCES `user`(`user_id`),
     FOREIGN KEY(`currency_from`) REFERENCES `currency`(`id`),
     FOREIGN KEY(`currency_to`) REFERENCES `currency`(`id`)
 );

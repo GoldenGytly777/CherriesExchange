@@ -5,7 +5,9 @@ import lombok.Data;
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="user")
@@ -56,6 +58,11 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     List < TransactionHistory > transactionsHistories;
 
-    @OneToMany(mappedBy = "user")
-    List < Address > Addressees;
+//
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user_id")
+//    private List<Address> Addresses;
+
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "users")
+    private Set<Address> employees = new HashSet<>();
 }
